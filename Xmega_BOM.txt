@@ -1,0 +1,20 @@
+
+Alkuperäisen suunnitelman mukainen komponenttilista:
+IC1: Microchip TC1269 3.3V
+U$1: Mini USB B /w board guide, se yleisin malli
+S1: SMD-painonappi, se yleisin malli 
+Y1: 5.0x3.2 mm kide 
+Q1: TH 32 kHz kide
+
+Ja ohjearvoja, valmistajien mukaan:
+C1-2, C5-6: 0603 konkat kiteiden speksien mukaan
+C3: 0805 1 uF tai yli
+C4: Jätetään tyhjäksi
+C7-10: 0603 100 nF
+C11: 0603 4.7 nF (tai jätetään tyhjäksi)
+C12: 0603 470 pF tai jätetään tyhjäksi
+C13: Tantaali B-case 1 uF tai mielellään yli
+R1: 0603 noin 1M (tai 0R tai jätetään tyhjäksi)
+R2-3: 0603 0R (tai 10-22R)
+
+Suluissa olevat vaihtoehdot vaihtoehtoisista lähteistä (ei valmistajan suositus). Piirin nurjalla puolella on jumpperit, joilla toisen kellokiteen tilalle saa kaksi io-pinniä. R2 ja R3 toimivat USB:n datan jumppereina.
