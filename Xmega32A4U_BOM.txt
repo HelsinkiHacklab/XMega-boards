@@ -1,3 +1,5 @@
+Kontrolleri Xmega32A4U
+
 
 Alkuperäisen suunnitelman mukainen komponenttilista:
 IC1: Microchip TC1269 3.3V
