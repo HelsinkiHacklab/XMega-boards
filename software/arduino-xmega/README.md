@@ -7,4 +7,7 @@
 I (rambo) [updated](https://github.com/rambo/arduino-tiny/tree/attiny1634/avr-gcc) the AVR toolchain but I'm not 100% it's required.
 
 
+## TODO
+
+Instructions on how to make Arduino IDE to keep the hex-file (and how to find it) so you can use dfu_programmer in case you have no PDI-capable programmer handy
 
