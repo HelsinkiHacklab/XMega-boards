@@ -16,7 +16,4 @@ Breakouts for various XMegas with required supporting hardware
     AVCC and AREF filtering. USB connector changed, one LED added, reset button and 
     separate power connector removed.
 
-## Software
-
-For example Arduino IDE (well, XMegaduino) pin definitions for these boards (or at least some of them).
 
