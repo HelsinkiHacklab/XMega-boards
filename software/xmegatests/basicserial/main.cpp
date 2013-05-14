@@ -22,7 +22,7 @@
 #include <avr/interrupt.h>
 
 
-// If something goes wrong, halt and blink the PD5 LED, frequency somowhat related to error parameter
+// If something goes wrong, halt and blink the PD5 LED, frequency somewhat related to error parameter
 void HALT(uint8_t error = 0) {
 	cli();
 	PORTD.DIRSET = 0b00100000; 		
@@ -54,7 +54,7 @@ uint8_t ReadCalibrationByte(uint16_t index) {
 
 // Sets clkCPU/PER system clock and clkPER4 hi-res
 //  - the standard 32 MHz with 128 MHz hi-res = setClockExternal16MHzHiRes(8, 1)
-//  - overcloking 68 MHz with 272 MHz hi-res = setClockExternal16MHzHiRes(17, 1) <- not stable, but some chips might work for testing purposes 
+//  - overclocking 68 MHz with 272 MHz hi-res = setClockExternal16MHzHiRes(17, 1) <- not stable, but some chips might work for testing purposes 
 void setClockExternal16MHzHiRes(uint8_t multiplier, uint16_t divider) {
 
 	uint8_t pll = 0;
@@ -147,7 +147,7 @@ void debugPrintHex(uint64_t value, uint8_t digits) {
 }
 
 
-// Print deciman number to serial port
+// Print decimal number to serial port
 void debugPrintDec(uint64_t value, uint8_t digits) {
 	uint8_t buffer[20] = { 0 };
     uint8_t d = digits;

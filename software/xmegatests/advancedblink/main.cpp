@@ -21,7 +21,7 @@
 #include <avr/interrupt.h>
 
 
-// If something goes wrong, halt and blink the PD5 LED, frequency somowhat related to error parameter
+// If something goes wrong, halt and blink the PD5 LED, frequency somewhat related to error parameter
 void HALT(uint8_t error = 0) {
 	cli();
 	PORTD.DIRSET = 0b00100000; 		
@@ -62,7 +62,7 @@ inline uint32_t getTickCount32() {
   	if (TCE0.INTFLAGS & 0b1) { 				// INTFLAGS[0] – OVFIF: Overflow/Underflow Interrupt Flag
   		// Handle it straight here, instead of the interrupt handler
     	TCE0.INTFLAGS |= 0b1;                // Clear the pending interrupt
-    	timer = TCE0.CNT;                   // (1b) Overflow occured concurrently, read timer again to get new value after overflow
+    	timer = TCE0.CNT;                   // (1b) Overflow occurred concurrently, read timer again to get new value after overflow
 	  	++tick_counter_31to16;				  
 		if (tick_counter_31to16 == 0) { ++tick_counter_63to32;	}
   	}
@@ -81,7 +81,7 @@ inline uint64_t getTickCount64() {
   	if (TCE0.INTFLAGS & 0b1) { 				// INTFLAGS[0] – OVFIF: Overflow/Underflow Interrupt Flag
   		// Handle it straight here, instead of the interrupt handler
     	TCE0.INTFLAGS |= 0b1;                // Clear the pending interrupt
-    	timer = TCE0.CNT;                   // (1b) Overflow occured concurrently, read timer again to get new value after overflow
+    	timer = TCE0.CNT;                   // (1b) Overflow occurred concurrently, read timer again to get new value after overflow
 	  	++tick_counter_31to16;
 		if (tick_counter_31to16 == 0) { ++tick_counter_63to32;	}
   	}
@@ -140,7 +140,7 @@ uint8_t ReadCalibrationByte(uint16_t index) {
 
 // Sets clkCPU/PER system clock and clkPER4 hi-res
 //  - the standard 32 MHz with 128 MHz hi-res = setClockExternal16MHzHiRes(8, 1)
-//  - overcloking 68 MHz with 272 MHz hi-res = setClockExternal16MHzHiRes(17, 1) <- not stable, but some chips might work for testing purposes 
+//  - overclocking 68 MHz with 272 MHz hi-res = setClockExternal16MHzHiRes(17, 1) <- not stable, but some chips might work for testing purposes 
 void setClockExternal16MHzHiRes(uint8_t multiplier, uint16_t divider) {
 
 	uint8_t pll = 0;
@@ -216,13 +216,13 @@ int main() {
 	PORTD.DIRSET =	0b00010000;
 
 	
-	PORTD.DIRSET = 0b00100000; 		// PD4 as output for the LED
+	PORTD.DIRSET = 0b00100000; 		// PD5 as output for the LED
 
 	 
 	while (true) {	
 		
 		// Toggle LED
-		PORTD.OUTTGL = 0b00100001; 	// Toggle PD4
+		PORTD.OUTTGL = 0b00100000; 	// Toggle PD5
 
 		delaySeconds(1);
 

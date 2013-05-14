@@ -19,7 +19,7 @@
 #include <avr/interrupt.h>
 
 
-// If something goes wrong, halt and blink the PD5 LED, frequency somowhat related to error parameter
+// If something goes wrong, halt and blink the PD5 LED, frequency somewhat related to error parameter
 void HALT(uint8_t error = 0) {
 	cli();
 	PORTD.DIRSET = 0b00100000; 		
@@ -51,7 +51,7 @@ uint8_t ReadCalibrationByte(uint16_t index) {
 
 // Sets clkCPU/PER system clock and clkPER4 hi-res
 //  - the standard 32 MHz with 128 MHz hi-res = setClockExternal16MHzHiRes(8, 1)
-//  - overcloking 68 MHz with 272 MHz hi-res = setClockExternal16MHzHiRes(17, 1) <- not stable, but some chips might work for testing purposes 
+//  - overclocking 68 MHz with 272 MHz hi-res = setClockExternal16MHzHiRes(17, 1) <- not stable, but some chips might work for testing purposes 
 void setClockExternal16MHzHiRes(uint8_t multiplier, uint16_t divider) {
 
 	uint8_t pll = 0;
@@ -119,7 +119,7 @@ void dmaRAMtoSPI(DMA_CH_struct & ch, const uint8_t * src, USART_t & dst, uint16_
 	ch.DESTADDR2 = 		0;
 	ch.TRFCNT = 		len;
 	
-	ch.CTRLA =			0b10100100;  	// enable, repcnt, single, burst 1 byte -> starts when USART ready
+	ch.CTRLA =			0b10100100;  	// enable, REPCNT, single, burst 1 byte -> starts when USART ready
 }
 
 void dmaWait(DMA_CH_struct & ch) {
@@ -221,7 +221,7 @@ int main() {
 		// 1. wait dma transfer complete
 		dmaWait(DMA.CH0);
 
-		// 2. wait last byte actually tranferred
+		// 2. wait last byte actually transferred
 		waitSPI(USARTD0);
 
 		// 3. latch 595s 
