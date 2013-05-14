@@ -12,7 +12,7 @@
 
 int main() {
 	
-	// Set PD0 as output, it has LED in the default board 
+	// Set PD5 as output, it has LED in the default board 
 	// - there are different registers for setting=SET, clearing=CLR and toggling=TGL for only some bits in direction=DIR and output=OUT registers
 	// - for more info see [AU 13.13]
 	PORTD.DIRSET = 0b00100000; 		
@@ -21,10 +21,10 @@ int main() {
 	// Stay in infinite loop
 	while (true) {	
 			
-		// Toggle PD0 pin	
+		// Toggle PD5 pin	
 		PORTD.OUTTGL = 0b00100000; 	
 		
-		// Approximate 1 second delay by readind and writing the general purpose I/O register so that compiler can't optimize it away
+		// Approximate 1 second delay by reading and writing the general purpose I/O register so that compiler can't optimize it away
 		for (uint32_t i = 0; i < 222222; i++) { GPIO0 += GPIO1; } 
 	}
 
