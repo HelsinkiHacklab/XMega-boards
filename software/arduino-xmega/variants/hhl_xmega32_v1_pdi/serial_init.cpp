@@ -32,8 +32,9 @@ ISR(USART##usart_port##port_nr##_RXC_vect) \
 } \
 HardwareSerial name (&name##rx_buffer, &USART##usart_port##port_nr, &PORT##usart_port, (port_nr ? PIN6_bm : PIN2_bm), (port_nr ? PIN7_bm : PIN3_bm));
 
-SERIAL_DEFINE(Serial, C, 0);
-SERIAL_DEFINE(Serial1, C, 1);
-SERIAL_DEFINE(Serial2, D, 0);
+// The comments are reminders on where these USARTs actually are (and pin numbers as on the rev1 board)
+SERIAL_DEFINE(Serial, C, 0); // -> PC1/PC3 == 17/19
+SERIAL_DEFINE(Serial1, C, 1); // -> PC6/PC7 == 22/23
+SERIAL_DEFINE(Serial2, D, 0); // -> PD2/PD3 == 26/27
 /* SERIAL_DEFINE(Serial3, D, 1);  This is USB */
-SERIAL_DEFINE(Serial3, E, 0);
+SERIAL_DEFINE(Serial3, E, 0); // -> PE2/PE3 == 2/3
